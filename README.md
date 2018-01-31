@@ -2,13 +2,17 @@ Ethereum Network Intelligence API
 ============
 [![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url]
 
-This is the backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and connects through WebSockets to [eth-netstats](https://github.com/cubedro/eth-netstats) to feed information. For full install instructions please read the [wiki](https://github.com/ethereum/wiki/wiki/Network-Status).
+# WARNING - Development in Progress
+## This code is fully unsupported at the moment.
+
+This is the backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and send the information to an Azure OMS instance.
 
 
 ## Prerequisite
-* eth, geth or pyethapp
+* eth, geth, pyethapp or Parity
 * node
 * npm
+* existing Azure OMS Instance
 
 
 ## Installation on an Ubuntu EC2 Instance
@@ -36,8 +40,6 @@ Configure the app modifying [processes.json](/eth-net-intelligence-api/blob/mast
 		"LISTENING_PORT"  : "30303", // eth listening port (only used for display)
 		"INSTANCE_NAME"   : "", // whatever you wish to name your node
 		"CONTACT_DETAILS" : "", // add your contact details here if you wish (email/skype)
-		"WS_SERVER"       : "wss://rpc.ethstats.net", // path to eth-netstats WebSockets api server
-		"WS_SECRET"       : "see http://forum.ethereum.org/discussion/2112/how-to-add-yourself-to-the-stats-dashboard-its-not-automatic", // WebSockets api server secret used for login
 		"VERBOSITY"       : 2 // Set the verbosity (0 = silent, 1 = error, warn, 2 = error, warn, info, success, 3 = all logs)
 	}
 ```
