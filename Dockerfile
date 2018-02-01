@@ -43,7 +43,7 @@ RUN apt-get update &&\
 RUN adduser ethnetoms
 
 RUN cd /home/ethnetoms &&\
-    git clone -b oms https://github.com/ssflynn77/eth-net-intelligence-oms.git &&\
+    git clone https://github.com/ssflynn77/eth-net-intelligence-oms.git &&\
     cd eth-net-intelligence-oms &&\
     npm install &&\
     npm install -g pm2
