@@ -1,7 +1,7 @@
 {
-  "name": "eth-net-intelligence-api",
-  "description": "Ethereum Network Intelligence API",
-  "version": "0.1.1",
+  "name": "eth-net-intelligence-oms",
+  "description": "Ethereum Network Intelligence to Azure OMS",
+  "version": "0.1.0",
   "private": true,
   "main": "./app.js",
   "directories": {
@@ -13,9 +13,6 @@
     "debounce": "1.0.0",
     "debug": "2.2.0",
     "lodash": "4.1.0",
-    "primus": "4.0.5",
-    "primus-emit": "1.0.0",
-    "primus-spark-latency": "0.1.1",
     "web3": "0.15.3",
     "ws": "^1.0.1"
   },
@@ -24,17 +21,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cubedro/eth-net-intelligence-api.git"
+    "url": "https://github.com/ssflynn77/eth-net-intelligence-oms.git"
   },
-  "homepage": "https://github.com/cubedro/eth-net-intelligence-api",
+  "homepage": "https://github.com/ssflynn77/eth-net-intelligence-oms",
   "bugs": {
-    "url": "https://github.com/cubedro/eth-net-intelligence-api/issues"
+    "url": "https://github.com/ssflynn77/eth-net-intelligence-oms/issues"
   },
   "keywords": [
     "ethereum",
     "network",
     "intelligence",
-    "API"
+    "API",
+    "OMS"
   ],
   "author": "ethdev.com",
   "authors": [

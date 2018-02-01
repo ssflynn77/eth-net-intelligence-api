@@ -1,6 +1,6 @@
 [
   {
-    "name"              : "node-app",
+    "name"              : "node-app-oms",
     "script"            : "app.js",
     "log_date_format"   : "YYYY-MM-DD HH:mm Z",
     "merge_logs"        : false,
@@ -12,13 +12,13 @@
     {
       "NODE_ENV"        : "production",
       "RPC_HOST"        : "localhost",
-      "RPC_PORT"        : "8545",
-      "LISTENING_PORT"  : "30303",
+      "RPC_PORT"        : "8540",
+      "LISTENING_PORT"  : "30300",
       "INSTANCE_NAME"   : "",
       "CONTACT_DETAILS" : "",
-      "WS_SERVER"       : "wss://rpc.ethstats.net",
-      "WS_SECRET"       : "see http://forum.ethereum.org/discussion/2112/how-to-add-yourself-to-the-stats-dashboard-its-not-automatic",
-      "VERBOSITY"       : 2
+      "VERBOSITY"       : 3,
+      "OMS_WORKSPACE_ID": "Found in the OMS Portal under Settings / Connected Services",
+      "OMS_KEY"         : "Found in the OMS Portal under Settings / Connected Services"
     }
   }
 ]
