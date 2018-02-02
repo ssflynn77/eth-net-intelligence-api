@@ -17,7 +17,7 @@ This is a backend service which runs along with ethereum and tracks the network 
 	* [Log Analytics Oveview](https://docs.microsoft.com/en-us/azure/log-analytics/)
 
 ## Installation script
-Run the following from a Linux shell and replace the bold arguments with your information
+Run the following command from a Linux shell and replace the bold arguments with your information.  This will install the software and all prerequisite software, create the configuration file with the arguments provided, start the software, and configure it to be restarted with the computer.
 
 <pre>
 curl -sL https://github.com/ssflynn77/eth-net-intelligence-oms/raw/master/bin/install.sh | bash -s <b>RPC_PORT RPC_HOST_IP NODE_ID OMS_WORKSPACE_ID OMS_KEY</b>
@@ -36,15 +36,14 @@ instructions on how to build/run/setup. Configuration instructions below still a
 
 ## Configuration
 
-Configure the app modifying [app.json](/eth-net-intelligence-oms/blob/master/app.json). Note that you have to modify the backup app.json file located in `./app.json` (to allow you to set your env vars without being rewritten when updating).
+Configure the app by modifying [app.json](/eth-net-intelligence-oms/blob/master/app.json). Note that you have to modify the backup app.json file located in `./app.json` (to allow you to set your env vars without being rewritten when updating).
 
 ```json
 "env":
 	{
 		"NODE_ENV"        : "production", // tell the client we're in production environment
 		"RPC_HOST"        : "localhost", // eth JSON-RPC host
-		"RPC_PORT"        : "8545", // eth JSON-RPC port
-		"LISTENING_PORT"  : "30303", // eth listening port (only used for display)
+		"RPC_PORT"        : "8545", // eth JSON-RPC port		
 		"INSTANCE_NAME"   : "", // whatever you wish to name your node to display in OMS and other Dashboards
 		"CONTACT_DETAILS" : "", // add your contact details here if you wish (email/skype)
 		"VERBOSITY"       : 2, // Set the verbosity (0 = silent, 1 = error, warn, 2 = error, warn, info, success, 3 = all logs)
@@ -58,16 +57,16 @@ Configure the app modifying [app.json](/eth-net-intelligence-oms/blob/master/app
 Run it using pm2:
 
 ```bash
-cd ~/bin
+cd ~/eth-net-intelligence-oms
 pm2 start app.json
 ```
 
-## Updating
-
-To update the API client use the following command:
-
+## Stop
 ```bash
-~/bin/www/bin/update.sh
+pm2 stop node-app-oms
 ```
 
-It will stop the current netstats client processes, automatically detect your ethereum implementation and version, update it to the latest develop build, update netstats client and reload the processes.
+## View Logs
+```bash
+pm2 logs node-app-oms
+```
