@@ -1,36 +1,32 @@
-Ethereum Network Intelligence API
+Ethereum Network Intelligence OMS
 ============
 
 **WARNING - Development in Progress**
 
 **This code is fully unsupported at the moment**
 
-This is the backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and send the information to an Azure OMS instance.
+This is a backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and sends the information to an Azure OMS instance.
 
 > Forked from eth-net-intelligence-api at https://github.com/cubedro/eth-net-intelligence-api
 
 
 ## Prerequisite
-* eth, geth, pyethapp or Parity
-* node
-* npm
-* existing Azure OMS Instance
+* Existing geth or Parity client
+* Existing Azure OMS Instance
+	* [OMS Overview](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) 
+	* [Log Analytics Oveview](https://docs.microsoft.com/en-us/azure/log-analytics/)
 
-## Installation on an Ubuntu EC2 Instance
+## Installation script
+Run 
 
-Fetch and run the build shell. This will install everything you need: latest ethereum - CLI from develop branch (you can choose between eth or geth), node.js, npm & pm2.
-
-```bash
-bash <(curl https://raw.githubusercontent.com/cubedro/eth-net-intelligence-api/master/bin/build.sh)
-```
-## Installation as docker container (optional)
+## Installation as docker container
 
 There is a `Dockerfile` in the root directory of the repository. Please read through the header of said file for
 instructions on how to build/run/setup. Configuration instructions below still apply.
 
 ## Configuration
 
-Configure the app modifying [app.json](/eth-net-intelligence-api/blob/master/app.json). Note that you have to modify the backup app.json file located in `./bin/app.json` (to allow you to set your env vars without being rewritten when updating).
+Configure the app modifying [app.json](/eth-net-intelligence-oms/blob/master/app.json). Note that you have to modify the backup app.json file located in `./app.json` (to allow you to set your env vars without being rewritten when updating).
 
 ```json
 "env":
@@ -39,7 +35,7 @@ Configure the app modifying [app.json](/eth-net-intelligence-api/blob/master/app
 		"RPC_HOST"        : "localhost", // eth JSON-RPC host
 		"RPC_PORT"        : "8545", // eth JSON-RPC port
 		"LISTENING_PORT"  : "30303", // eth listening port (only used for display)
-		"INSTANCE_NAME"   : "", // whatever you wish to name your node
+		"INSTANCE_NAME"   : "", // whatever you wish to name your node to display in OMS and other Dashboards
 		"CONTACT_DETAILS" : "", // add your contact details here if you wish (email/skype)
 		"VERBOSITY"       : 2, // Set the verbosity (0 = silent, 1 = error, warn, 2 = error, warn, info, success, 3 = all logs)
 		"OMS_WORKSPACE_ID": "", // Can be found in the OMS Portal under Settings / Connected Services
