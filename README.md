@@ -17,7 +17,17 @@ This is a backend service which runs along with ethereum and tracks the network 
 	* [Log Analytics Oveview](https://docs.microsoft.com/en-us/azure/log-analytics/)
 
 ## Installation script
-Run 
+Run the following from a Linux shell and replace the bold arguments with your information
+
+<pre>
+curl -sL https://github.com/ssflynn77/eth-net-intelligence-oms/raw/master/bin/install.sh | bash -s <b>RPC_PORT RPC_HOST_IP NODE_ID OMS_WORKSPACE_ID OMS_KEY</b>
+</pre>
+
+Example:
+
+```bash
+curl -sL https://github.com/ssflynn77/eth-net-intelligence-oms/raw/master/bin/install.sh | bash -s 8545 "10.0.0.4" "node1" "4328ba1e-a081-42b6-b083-051b4ac6c21a" "VSKTH9PueGF9i4UdJacpNQv36VKkcojQfeN6OfAZ4xxLdM8elp90IbsFxNLzG1RbAOPiuCqORfCMv9F2lEQJFg=="
+```
 
 ## Installation as docker container
 
